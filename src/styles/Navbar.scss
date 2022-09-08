@@ -1,0 +1,239 @@
+@font-face {
+  font-family: "Museo-300";
+  src: url("../assets/fonts/Museo\ Sans\ Cyrl\ 300.ttf");
+}
+
+.nav {
+  border: 0.1rem solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.3);
+
+  &_menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    width: 50%;
+    list-style: none;
+
+    li {
+      color: white;
+      cursor: pointer;
+
+      display: inline-block;
+      position: relative;
+      font-family: "Museo-300";
+      &:hover {
+        opacity: 0.6;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 1px;
+        bottom: -5px;
+        left: 0;
+        background-color: white;
+        transform-origin: bottom left;
+        transition: transform 0.25s ease-out;
+      }
+
+      &:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+    }
+  }
+
+  &_logo {
+    position: relative;
+    border: 0.1rem solid rgba(255, 255, 255, 0.4);
+
+    border-bottom: none;
+    border-top: none;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 20px;
+    
+
+    &:after {
+      right: -2px;
+      top: -1px;
+      border-right: 2px solid white;
+      border-top: 2px solid white;
+    }
+    &:before {
+      left: -2px;
+      top: -1px;
+      border-left: 2px solid white;
+      border-top: 2px solid white;
+    }
+    &__inner {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      height: 100px;
+      &:before {
+        bottom: -1px;
+        left: -2px;
+        border-left: 2px solid white;
+        border-bottom: 2px solid white;
+      }
+      &:after {
+        bottom: -1px;
+        right: -2px;
+        border-right: 2px solid white;
+        border-bottom: 2px solid white;
+      }
+    }
+  }
+}
+
+.nav_logo:before,
+.nav_logo__inner:before,
+.nav_logo:after,
+.nav_logo__inner:after {
+  content: "";
+  position: absolute;
+  height: 8px;
+  width: 8px;
+}
+
+.toggle {
+  z-index: 10000;
+
+  .line1 {
+    transform: rotate(-45deg) translate(-8px, 5px);
+  }
+  .line2 {
+    opacity: 0;
+  }
+  .line3 {
+    transform: rotate(45deg) translate(-7px, -5px);
+  }
+}
+
+.toggler {
+  cursor: pointer;
+  display: none;
+  &:hover {
+    .line1,
+    .line2,
+    .line3 {
+      background-color: grey;
+    }
+  }
+  div {
+    width: 1.8rem;
+    height: 0.2rem;
+    margin: 0.4rem;
+    background: white;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+  &.active {
+    opacity: 1;
+  }
+}
+
+.sidebar {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  opacity: 0.5;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
+
+  &.active_sidebar {
+    transform: translateX(0);
+  }
+
+  &_menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    list-style: none;
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    li {
+      color: white;
+      cursor: pointer;
+
+      margin-bottom: 15px;
+      font-size: 30px;
+
+      display: inline-block;
+      position: relative;
+
+      font-family: "Museo-300";
+
+      &:hover {
+        opacity: 0.6;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 1px;
+        bottom: -5px;
+        left: 0;
+        background-color: white;
+        transform-origin: bottom left;
+        transition: transform 0.25s ease-out;
+      }
+
+      &:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .nav_menu {
+    display: none;
+  }
+
+  .toggler {
+    display: block;
+  }
+}

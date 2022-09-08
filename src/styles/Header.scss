@@ -1,0 +1,115 @@
+@font-face {
+  font-family: "Museo-300";
+  src: url("../assets/fonts/Museo\ Sans\ Cyrl\ 300.ttf");
+}
+
+.header {
+  background: url("../assets/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100vh;
+}
+
+.header_left {
+  position: absolute;
+  height: 330px;
+  border-radius: 50%;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &__slogan {
+    position: absolute;
+    left: -451px;
+    top: -50px;
+
+    width: 750px;
+    height: 400px;
+    background-image: url("../assets/travel_slogan.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  &__btn {
+    position: absolute;
+
+    left: -430px;
+    top: 230px;
+    width: 170px;
+    height: 50px;
+    button {
+      cursor: pointer;
+      padding: 8px 15px;
+      border: none;
+      outline: 1px solid blue;
+      background: transparent;
+      color: white;
+      opacity: 0.7;
+
+      font-family: "Museo-300";
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+#cornerlight1 {
+  position: absolute;
+  top: -15px;
+  left: 141px;
+  z-index: 1000;
+}
+
+#cornerlight2 {
+  position: absolute;
+  bottom: 4px;
+  right: 151px;
+}
+
+.point {
+  border: 1px solib yellow;
+
+  position: absolute;
+  width: 900px;
+  left: -282px;
+  top: -5px;
+  img {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 920px) {
+  .header_left {
+    position: relative;
+    height: 80px;
+
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__slogan {
+      display: none;
+    }
+    &__btn {
+      position: relative;
+
+      left: 0;
+      top: 0;
+      width: 170px;
+      height: 50px;
+    }
+  }
+  .point {
+    display: none;
+  }
+}
